@@ -16,7 +16,7 @@ function ProductCard({
   const discountPercentage = discount ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
 
   return (
-    <div className="product-card">
+    <div className="product-card" data-product-id={id}>
       {discount && (
         <div className="discount-badge">
           -{discountPercentage}%

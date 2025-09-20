@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './SearchModal.css';
 
-function SearchModal({ isOpen, onClose, onSearch, searchResults = [] }) {
+function SearchModal({ isOpen, onClose, onSearch, searchResults = [], onProductClick }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
@@ -69,7 +69,11 @@ function SearchModal({ isOpen, onClose, onSearch, searchResults = [] }) {
             <h3>Результаты поиска ({searchResults.length})</h3>
             <div className="results-grid">
               {searchResults.map((product) => (
-                <div key={product.id} className="search-result-item">
+                <div 
+                  key={product.id} 
+                  className="search-result-item"
+                  onClick={() => onProductClick && onProductClick(product.id)}
+                >
                   <img src={product.image} alt={product.name} />
                   <div className="result-info">
                     <h4>{product.name}</h4>

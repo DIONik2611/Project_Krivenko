@@ -100,3 +100,20 @@ ul, ol {
     padding: 0 1rem;
   }
 }
+
+/* Анимация подсветки товара */
+@keyframes highlight {
+  0% {
+    background-color: transparent;
+    transform: scale(1);
+  }
+  50% {
+    background-color: rgba(112, 192, 91, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(112, 192, 91, 0.3);
+  }
+  100% {
+    background-color: transparent;
+    transform: scale(1);
+  }
+}

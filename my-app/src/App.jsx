@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProductGrid from './components/ProductGrid';
@@ -14,6 +14,10 @@ function App() {
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  
+  // Refs для секций товаров
+  const featuredProductsRef = useRef(null);
+  const newProductsRef = useRef(null);
 
   // Пример данных для товаров продуктового магазина
   const featuredProducts = [
@@ -183,6 +187,39 @@ function App() {
     console.log(`Просмотр деталей товара с ID: ${productId}`);
   };
 
+  const scrollToProduct = (productId) => {
+    // Определяем, в какой секции находится товар
+    const allProducts = [...featuredProducts, ...newProducts];
+    const product = allProducts.find(p => p.id === productId);
+    
+    if (product) {
+      const isFeatured = featuredProducts.some(p => p.id === productId);
+      const targetRef = isFeatured ? featuredProductsRef : newProductsRef;
+      
+      if (targetRef.current) {
+        // Закрываем модальное окно поиска
+        setIsSearchModalOpen(false);
+        
+        // Прокручиваем к секции с товаром
+        setTimeout(() => {
+          targetRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Подсвечиваем товар
+          const productElement = document.querySelector(`[data-product-id="${productId}"]`);
+          if (productElement) {
+            productElement.style.animation = 'highlight 2s ease-in-out';
+            setTimeout(() => {
+              productElement.style.animation = '';
+            }, 2000);
+          }
+        }, 100);
+      }
+    }
+  };
+
   const handleSearch = (query) => {
     setSearchQuery(query);
     const allProducts = [...featuredProducts, ...newProducts];
@@ -271,21 +308,25 @@ function App() {
         </div>
       </section>
 
-      <ProductGrid
-        title="Рекомендуемые товары"
-        products={featuredProducts}
-        onAddToCart={handleAddToCart}
-        onViewDetails={handleViewDetails}
-        onViewAll={() => console.log('Показать все рекомендуемые')}
-      />
+      <div ref={featuredProductsRef}>
+        <ProductGrid
+          title="Рекомендуемые товары"
+          products={featuredProducts}
+          onAddToCart={handleAddToCart}
+          onViewDetails={handleViewDetails}
+          onViewAll={() => console.log('Показать все рекомендуемые')}
+        />
+      </div>
 
-      <ProductGrid
-        title="Новинки"
-        products={newProducts}
-        onAddToCart={handleAddToCart}
-        onViewDetails={handleViewDetails}
-        onViewAll={() => console.log('Показать все новинки')}
-      />
+      <div ref={newProductsRef}>
+        <ProductGrid
+          title="Новинки"
+          products={newProducts}
+          onAddToCart={handleAddToCart}
+          onViewDetails={handleViewDetails}
+          onViewAll={() => console.log('Показать все новинки')}
+        />
+      </div>
 
       <Footer
         companyName="FreshMarket"
@@ -298,6 +339,7 @@ function App() {
         onClose={handleSearchModalClose}
         onSearch={handleSearch}
         searchResults={searchResults}
+        onProductClick={scrollToProduct}
       />
 
       <CartModal
