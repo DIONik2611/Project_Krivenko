@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import '../assets/BuyAgo.css';
 import { Link } from 'react-router-dom';
 
-const BuyAgo = ({ toggleFavorite, isFavorite }) => {
+const BuyAgo = ({toggleFavorite, isFavorite}) => {
   const products = [
     {
       id: 8,
@@ -46,7 +46,7 @@ const BuyAgo = ({ toggleFavorite, isFavorite }) => {
         <Link to="/buyago" className="all-buyago">Все покупки</Link>
       </div>
 
-      { }
+      {}
       <div className="buyago-container">
         <div className="cards-container">
           {products.map((product, index) => (

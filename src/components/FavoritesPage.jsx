@@ -48,7 +48,7 @@ const FavoritesPage = ({ favorites = [], toggleFavorite }) => {
 
   return (
     <div style={{ width: '1440px', margin: '0 auto', padding: '0' }}>
-      { }
+      {}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -77,12 +77,12 @@ const FavoritesPage = ({ favorites = [], toggleFavorite }) => {
         </button>
       </div>
 
-      { }
+      {}
       <div style={{ display: 'flex', gap: '32px' }}>
         <div style={{ flex: 1, minWidth: '300px', background: '#f9f7f3', padding: '20px', borderRadius: '8px' }}>
           <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', marginBottom: '16px' }}>Фильтр</h3>
 
-          { }
+          {}
           <div style={{ marginBottom: '16px' }}>
             <label style={{ display: 'block', fontSize: '14px', marginBottom: '8px' }}>Цена</label>
             <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
@@ -112,7 +112,7 @@ const FavoritesPage = ({ favorites = [], toggleFavorite }) => {
             />
           </div>
 
-          { }
+          {}
           <div style={{ marginBottom: '16px' }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px' }}>
               <input
@@ -125,7 +125,7 @@ const FavoritesPage = ({ favorites = [], toggleFavorite }) => {
             </label>
           </div>
 
-          { }
+          {}
           <div style={{ display: 'flex', gap: '8px' }}>
             <button
               onClick={clearAllFilters}
@@ -157,9 +157,9 @@ const FavoritesPage = ({ favorites = [], toggleFavorite }) => {
           </div>
         </div>
 
-        { }
+        {}
         <div style={{ flex: 2, minWidth: '800px' }}>
-          { }
+          {}
           {appliedFilters.priceFrom > 0 && (
             <div style={{
               display: 'flex',
@@ -186,7 +186,7 @@ const FavoritesPage = ({ favorites = [], toggleFavorite }) => {
             </div>
           )}
 
-          { }
+          {}
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             {filteredProducts.length === 0 ? (
               <p style={{ width: '100%', textAlign: 'center', color: '#999' }}>

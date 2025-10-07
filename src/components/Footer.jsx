@@ -7,9 +7,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="logo-container">
-          <img
-            src={require('../assets/photo/logofoot.png')}
-            alt="Логотип Северяночка"
+          <img 
+            src={require('../assets/photo/logofoot.png')} 
+            alt="Логотип Северяночка" 
             className="footer-logo"
           />
         </div>
@@ -37,18 +37,17 @@ const Footer = () => {
           </a>
         </div>
 
-        <div className="phone-designer">
-          <div className="phone">
-            <img
-              src={require('../assets/photo/phone.png')}
-              alt="Телефон"
-              style={{ width: '16px', height: '16px' }}
-            />
-            <span>8 800 777 33 33</span>
-          </div>
-          <div className="designer">
-            Дизайн: ZASOVSKIY
-          </div>
+        <div className="phone">
+          <img 
+            src={require('../assets/photo/phone.png')} 
+            alt="Телефон" 
+            style={{ width: '16px', height: '16px' }} 
+          />
+          <span>8 800 777 33 33</span>
+        </div>
+
+        <div className="designer">
+          Дизайн: ZASOVSKIY
         </div>
       </div>
     </footer>

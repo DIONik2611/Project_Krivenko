@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import PromoCard from './PromoCard';
 import ProductCard from './ProductCard';
 
-const CategoryPage = ({ searchQuery }) => {
+const CategoryPage = () => {
   const navigate = useNavigate();
   const { categoryKey } = useParams();
 
@@ -131,16 +131,15 @@ const CategoryPage = ({ searchQuery }) => {
 
   const filteredProducts = products.filter(product => {
     const price = parseFloat(product.price.replace(',', '.'));
-    const matchesPrice = (!appliedFilters.priceFrom || price >= appliedFilters.priceFrom) &&
-                         (!appliedFilters.priceTo || price <= appliedFilters.priceTo);
-    const matchesSearch = !searchQuery || product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          product.category.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesPrice && matchesSearch;
+    return (
+      (!appliedFilters.priceFrom || price >= appliedFilters.priceFrom) &&
+      (!appliedFilters.priceTo || price <= appliedFilters.priceTo)
+    );
   });
 
   return (
     <div style={{ width: '1440px', margin: '0 auto', padding: '0' }}>
-      { }
+      {}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -169,12 +168,12 @@ const CategoryPage = ({ searchQuery }) => {
         </button>
       </div>
 
-      { }
+      {}
       <div style={{ display: 'flex', gap: '32px' }}>
         <div style={{ flex: 1, minWidth: '300px', background: '#f9f7f3', padding: '20px', borderRadius: '8px' }}>
           <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', marginBottom: '16px' }}>Фильтр</h3>
 
-          { }
+          {}
           <div style={{ marginBottom: '16px' }}>
             <label style={{ display: 'block', fontSize: '14px', marginBottom: '8px' }}>Цена</label>
             <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
@@ -204,7 +203,7 @@ const CategoryPage = ({ searchQuery }) => {
             />
           </div>
 
-          { }
+          {}
           <div style={{ marginBottom: '16px' }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px' }}>
               <input
@@ -217,7 +216,7 @@ const CategoryPage = ({ searchQuery }) => {
             </label>
           </div>
 
-          { }
+          {}
           <div style={{ display: 'flex', gap: '8px' }}>
             <button
               onClick={clearAllFilters}
@@ -249,9 +248,9 @@ const CategoryPage = ({ searchQuery }) => {
           </div>
         </div>
 
-        { }
+        {}
         <div style={{ flex: 2, minWidth: '800px' }}>
-          { }
+          {}
           {appliedFilters.priceFrom > 0 && (
             <div style={{
               display: 'flex',
@@ -278,7 +277,7 @@ const CategoryPage = ({ searchQuery }) => {
             </div>
           )}
 
-          { }
+          {}
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (

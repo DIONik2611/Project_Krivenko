@@ -1,12 +1,12 @@
 import React from 'react';
 import '../assets/ArticleCard.css';
 
-const ArticleCard = ({
-  image,
-  date,
-  title,
+const ArticleCard = ({ 
+  image, 
+  date, 
+  title, 
   description,
-  onReadMore
+  onReadMore 
 }) => {
   return (
     <div className="article-card">
@@ -15,7 +15,7 @@ const ArticleCard = ({
         <div className="article-date">{date}</div>
         <h3 className="article-title">{title}</h3>
         <p className="article-text">{description}</p>
-        <button
+        <button 
           className="read-more-btn"
           onClick={onReadMore}
         >

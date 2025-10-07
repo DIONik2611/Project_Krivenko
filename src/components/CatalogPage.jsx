@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CatalogPage = () => {
   const categories = [
-    { name: '', image: require('../assets/photo/block_milk.png'), key: 'молоко' },
+    { name: 'Молоко, сыр, яйцо', image: require('../assets/photo/block_milk.png'), key: 'молоко' },
     { name: 'Хлеб', image: require('../assets/photo/block_bread.png'), key: 'хлеб' },
     { name: 'Фрукты и овощи', image: require('../assets/photo/block_fruit.png'), key: 'фрукты' },
     { name: 'Замороженные продукты', image: require('../assets/photo/block_frozen.png'), key: 'замороженные' },
@@ -12,15 +12,15 @@ const CatalogPage = () => {
     { name: 'Чай, кофе', image: require('../assets/photo/block_tea.png'), key: 'чай' },
     { name: 'Бакалея', image: require('../assets/photo/block_bakaleya.png'), key: 'бакалея' },
     { name: 'Здоровое питание', image: require('../assets/photo/block_healthy.png'), key: 'здоровое' },
-    { name: '', image: require('../assets/photo/block_zoo.png'), key: 'зоотовары' },
+    { name: 'Зоотовары', image: require('../assets/photo/block_zoo.png'), key: 'зоотовары' },
     { name: 'Детское питание', image: require('../assets/photo/block_children.png'), key: 'детское' },
-    { name: '', image: require('../assets/photo/block_meat.png'), key: 'мясо' },
+    { name: 'Мясо, птица, колбаса', image: require('../assets/photo/block_meat.png'), key: 'мясо' },
     { name: 'Непродовольственные товары', image: require('../assets/photo/block_tovars.png'), key: 'непродовольственные' },
   ];
 
   return (
     <div style={{ width: '1440px', margin: '0 auto', padding: '0' }}>
-      { }
+      {}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -49,7 +49,7 @@ const CatalogPage = () => {
         </Link>
       </div>
 
-      { }
+      {}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', padding: '20px' }}>
         {categories.map((cat) => (
           <Link

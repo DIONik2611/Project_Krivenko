@@ -25,9 +25,9 @@ const OurStores = () => {
           ))}
         </div>
       </div>
-      <img
-        src={require('../assets/photo/map.png')}
-        alt="Карта магазинов"
+      <img 
+        src={require('../assets/photo/map.png')} 
+        alt="Карта магазинов" 
         className="map-image"
       />
     </section>

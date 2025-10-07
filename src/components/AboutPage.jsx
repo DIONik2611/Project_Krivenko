@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AboutPage.css';
+import '../assets/AboutPage.css';
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -24,6 +24,10 @@ const AboutPage = () => {
           </p>
         </div>
         <div className="image-content">
+          <img
+            src={require('../assets/photo/team.png')} 
+            alt="Команда"
+          />
           <div className="underline"></div>
         </div>
       </div>
@@ -58,7 +62,13 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <div className="logo-and-text">
+     <div className="logo-and-text">
+        <div className="logo">
+          <img
+            src={require('../assets/photo/aboutCompanyLogo.png')}
+            alt="Логотип"
+          />
+        </div>
         <div className="message">
           Спасибо за то, что вы с нами. Северяночка, везет всегда!
         </div>
